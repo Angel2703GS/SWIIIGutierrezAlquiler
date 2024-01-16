@@ -1,0 +1,19 @@
+BoundedContext GestionAlquiler
+BoundedContext GestionPagos
+BoundedContext GestionVehiculos
+BoundedContext Seguridad
+BoundedContext GestionClientes
+
+ContextMap E_Commerce_ContextMap {
+
+contains GestionAlquiler, GestionPagos, GestionVehiculos, Seguridad, GestionClientes
+
+GestionAlquiler  [U]->[D,ACL] GestionClientes
+GestionAlquiler [U,S]->[D,C] GestionPagos
+GestionClientes [U]->[D,ACL] GestionPagos
+GestionClientes [U,S]->[D,C] GestionVehiculos
+GestionClientes [U]->[D,ACL] Seguridad
+Seguridad [U]->[D,ACL] GestionPagos
+GestionVehiculos [U]->[D,ACL] GestionPagos
+
+}
