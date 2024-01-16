@@ -1,1 +1,37 @@
-# Dominios identificados
+# Dominios Identificados 
+## 1. Gestion de Alquiler
+Gestión de Alquileres de Autos
+Se encarga de administrar las reservas de vehículos por parte de los clientes, abarcando la creación de solicitudes de alquiler, el procesamiento de pagos, el seguimiento de la disponibilidad de los automóviles y la gestión de devoluciones. Este dominio incluye funciones cruciales para el negocio de alquiler de autos, ya que está directamente vinculado al proceso de proporcionar el servicio principal y generador de ingresos para la organización de alquiler de vehículos.
+### Tipo de dominio: 
+El subdominio de gestión de alquileres es un Core Domain porque representa el proceso central de la adquisición de servicios de alquiler de automóviles por parte de los clientes. Este proceso es esencial para el negocio de alquiler de automóviles, ya que constituye la principal fuente de ingresos para la organización.
+## 2.Gestión de Vehículos
+Se encarga de administrar la flota de vehículos de la empresa, abarcando la asignación, mantenimiento, seguimiento de ubicación y disponibilidad de los vehículos. Incluye funciones críticas para el negocio, ya que está directamente relacionado con el proceso de proporcionar y mantener la flota de vehículos, que constituye el núcleo del servicio de la organización.
+### Tipo de dominio: 
+El subdominio de gestión de vehículos es un Core Domain porque representa el proceso central de la operación de la empresa, que se centra en la gestión efectiva de la flota de vehículos. Este proceso es esencial para el negocio, ya que asegura la disponibilidad, eficiencia y calidad de los vehículos ofrecidos a los clientes.
+## 3.La Gestión de Pagos 
+Se encarga de coordinar y supervisar todas las transacciones financieras relacionadas con la compra de productos o servicios. Este dominio abarca desde la verificación de la información de pago hasta el procesamiento efectivo de las transacciones. Incluye la administración de diversos métodos de pago y la implementación de medidas de seguridad para garantizar transacciones electrónicas seguras. 
+### Tipo de dominio:
+El subdominio gestion de pagos se clasifica como un Support Domain en la estructura de la empresa. Su papel fundamental radica en respaldar y facilitar el flujo eficiente del proceso de adquisición, contribuyendo significativamente a la satisfacción del cliente y al rendimiento general del negocio de comercio electrónico.
+## 4. Seguridad
+Tiene como objetivo salvaguardar la integridad, confidencialidad y disponibilidad de la información sensible y los sistemas de la empresa. Se encarga de implementar medidas de protección contra amenazas cibernéticas, gestionar accesos, realizar auditorías de seguridad y responder a incidentes.
+### Tipo de dominio:
+Se clasifica como un Support Domain en la estructura empresarial, ya que sustenta y refuerza la operación de los dominios centrales, contribuyendo a la estabilidad y la continuidad del negocio.
+## 5. Gestión de Clientes
+El dominio de Gestión de Usuarios se encarga de administrar la información detallada de los clientes de la organización, abarcando aspectos como perfiles individuales, direcciones de envío, detalles sobre métodos de pago y facturación, historial completo de pedidos realizados y preferencias específicas de cada cliente. 
+### Tipo de Dominio: 
+Es considerado como un Generic Domain, ya que encapsula conceptos y reglas de negocio que son fundamentales para la interacción con los usuarios dentro de un sistema. Su característica genérica sugiere que sus funcionalidades y lógica pueden ser reutilizadas en diversos proyectos y adaptarse a las necesidades particulares de empresa.
+# Patrones usados
+## 1. Gestion de Alquiler y Gestion Clientes 
+En el sistema de gestión de alquiler, la interacción entre los contextos de alquiler y clientes es esencial para garantizar una experiencia fluida y personalizada para los usuarios. Mientras que el contexto de alquiler maneja la información específica de las transacciones y detalles del alquiler, el contexto de clientes almacena datos cruciales sobre preferencias y detalles del usuario. La capa anticorrupción actúa como un salvaguarda, asegurando que la información entre estos dos contextos críticos se transmita y se procese de manera segura, evitando posibles corrupciones de datos.
+## 2. Gestion de Alquiler y Gestion de Pagos
+La colaboración entre los contextos de alquiler y pagos en un sistema de gestión de alquiler es fundamental para realizar transacciones de manera eficiente. Mientras que el contexto de alquiler se ocupa de los detalles específicos de la transacción, el contexto de pagos maneja la información financiera y procesa los pagos correspondientes. La capa anticorrupción juega un papel crucial aquí al proteger la integridad de la información financiera durante la transferencia y el procesamiento, evitando cualquier posible corrupción de datos.
+## 3. Gestion Clientes y Seguridad. 
+En el contexto de un sistema que gestiona clientes y la seguridad asociada, la colaboración entre estos dos contextos es esencial. Mientras que el contexto de clientes maneja la información detallada del usuario, incluyendo preferencias y detalles de contacto, el contexto de seguridad se centra en proteger esta información sensible. La capa anticorrupción proporciona una barrera segura, garantizando que la información del cliente se comparta y se utilice sin corrupciones ni pérdidas de integridad.
+## 4. seguridad y gestion de pagos
+En el marco de un sistema que aborda la seguridad y la gestión de pagos, la colaboración entre los contextos de seguridad y pagos es esencial para asegurar transacciones seguras. El contexto de seguridad se encarga de salvaguardar la integridad del sistema, mientras que el contexto de pagos gestiona la información financiera. La capa anticorrupción se interpone como un escudo protector, asegurando que la información financiera se transfiera y procese de manera segura, sin corrupciones ni alteraciones no deseadas.
+## 5. gestion de vehiculos y gestion de pagos
+En el ámbito de un sistema que administra vehículos y sus transacciones financieras asociadas, la colaboración entre los contextos de vehículos y pagos es esencial. Mientras que el contexto de vehículos almacena datos sobre la flota y su disponibilidad, el contexto de pagos se ocupa de procesar las transacciones financieras. La capa anticorrupción proporciona una capa de protección, asegurando que la información financiera y de vehículos se maneje sin corrupciones y con integridad.
+## 6. gestion de alquiler y gestion de pagos
+La relación simbiótica entre la gestión de alquiler y la gestión de pagos se rige por el patrón cliente-proveedor. La gestión de alquiler, siendo el proveedor upstream, suministra información crucial sobre las transacciones de alquiler al sistema de gestión de pagos, que actúa como el cliente downstream. La gestión de alquiler depende de la capacidad de procesamiento de pagos para garantizar transacciones seguras y eficientes, mientras que la gestión de pagos se basa en la información de alquiler para llevar a cabo transacciones financieras precisas y oportunas.
+## 7. gestion de clientes y gestion de vehiculos
+En el contexto de la gestión de clientes y la gestión de vehículos, la dinámica cliente-proveedor es esencial. La gestión de clientes, actuando como el cliente downstream, requiere información sobre la disponibilidad de vehículos y detalles asociados para brindar un servicio personalizado y eficiente. La gestión de vehículos, como el proveedor upstream, suministra estos detalles críticos para satisfacer las expectativas y preferencias de los clientes. La interdependencia entre estos dos p
